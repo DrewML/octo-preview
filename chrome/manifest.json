@@ -1,0 +1,15 @@
+{
+    "name": "Octo Preview",
+    "version": "1.0.0",
+    "description": "Live preview for markdown comments in PR/Issues on GitHub",
+    "manifest_version": 2,
+    "content_scripts": [{
+        "matches": [
+            "*://*/*/*/pull*",
+            "*://*/*/*/issues*"
+        ],
+        "js": ["inject.js"],
+        "run_at": "document_idle"
+    }],
+    "web_accessible_resources": ["live-preview.js"]
+}
