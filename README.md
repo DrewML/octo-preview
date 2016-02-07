@@ -7,5 +7,4 @@ A Chrome extension that displays live previews of Markdown comments while you ty
 ## Todo
 
 - Handle GitHub's not-full-page-reload use-case (likely w/ mutation observers)
-- Handle page-load use-case (GH gets values from sessionStorage)
 - Port to Firefox

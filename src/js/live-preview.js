@@ -2,11 +2,11 @@ import {
     getPreviewUri,
     getAuthenticityToken,
     getComment,
-    waitForTypingPause
+    throttleWhenTyping
 } from './dom';
 import {getMarkdownPreview} from './api';
 
-waitForTypingPause(form => {
+throttleWhenTyping(form => {
     getMarkdownPreview(
         getPreviewUri(),
         getComment(form),
@@ -14,4 +14,4 @@ waitForTypingPause(form => {
     ).then(markup => {
         form.querySelector('.js-preview-body').innerHTML = markup;
     }).catch(err => console.error(err.stack));
-});
+}, 800);

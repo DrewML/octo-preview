@@ -13,8 +13,7 @@ export function getPreviewUri() {
         .getAttribute('data-preview-url');
 }
 
-export function waitForTypingPause(cb) {
-    const TIMEOUT = 800;
+export function throttleWhenTyping(cb, timeout) {
     let timer;
 
     function reset() {
@@ -27,10 +26,10 @@ export function waitForTypingPause(cb) {
         cb(form);
     }
 
-    $(document).on('keydown', '.js-comment-field', function() {
+    $(document).on('change keydown', '.js-comment-field', function() {
         if (timer) return;
 
         const form = $(this).closest('form').get(0);
-        timer = setTimeout(() => success(form), TIMEOUT);
+        timer = setTimeout(() => success(form), timeout);
     });
 }
