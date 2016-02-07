@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "Live preview for markdown comments in PRs/Issues on GitHub",
   "scripts": {
-    "build-chrome": "npm run clean && npm run build-js && npm run copy-chrome",
-    "clean": "rm -rf dist && rm -rf chrome/dist && mkdir -p dist chrome/dist",
-    "build-js": "browserify -t babelify src/live-preview.js -o dist/live-preview.js",
-    "copy-chrome": "cp chrome/{inject.js,manifest.json} chrome/dist && cp -r dist chrome"
+    "build-chrome": "./scripts/build-chrome"
   },
   "author": "Andrew Levine",
   "dependencies": {

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CHROME_SHELL="shells/chrome"
+CHROME_DIST="dist/chrome"
+BUNDLE="./scripts/bundle-js"
+
+rm -rf $CHROME_DIST && mkdir -p $CHROME_DIST
+$BUNDLE $CHROME_DIST/live-preview.js
+cp $CHROME_SHELL/{inject.js,manifest.json} $CHROME_DIST

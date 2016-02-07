@@ -1,0 +1,5 @@
+#!/bin/sh
+
+BROWSERIFY="./node_modules/.bin/browserify"
+
+$BROWSERIFY -t babelify src/live-preview.js -o $1
