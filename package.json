@@ -1,7 +1,7 @@
 {
   "name": "octo-preview",
   "version": "1.0.0",
-  "description": "Live preview for markdown comments in PR/Issues on GitHub",
+  "description": "Live preview for markdown comments in PRs/Issues on GitHub",
   "scripts": {
     "build-chrome": "npm run clean && npm run build-js && npm run copy-chrome",
     "clean": "rm -rf dist && rm -rf chrome/dist && mkdir -p dist chrome/dist",

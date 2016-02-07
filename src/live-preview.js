@@ -1,30 +1,24 @@
-import waitForTypingPause from './typing-pause';
+import {
+    injectCSS,
+    getPreviewUri,
+    getAuthenticityToken,
+    getComment,
+    waitForTypingPause
+} from './dom';
+import {getMarkdownPreview} from './api';
 
-const qs = document.querySelector.bind(document);
-const defaultText = 'Nothing to preview'; 
+setupDisplay();
+waitForTypingPause(form => {
+    getMarkdownPreview(
+        getPreviewUri(),
+        getComment(form),
+        getAuthenticityToken()
+    ).then(markup => {
+        form.querySelector('.js-preview-body').innerHTML = markup;
+    }).catch(err => console.error(err.stack));
+});
 
-function getMarkdownPreview(previewURI, text, authenticityToken) {
-    if (!text) return Promise.resolve(defaultText);
-
-    // Upgrade jQuery deferred to an ES6 Promise
-    return Promise.resolve($.ajax({
-        method: 'POST',
-        url: previewURI,
-        data: {
-            authenticity_token: authenticityToken,
-            text
-        }
-    }));
-}
-
-function getAuthenticityToken() {
-    return qs('input[name="authenticity_token"]').value;
-}
-
-function getComment(form) {
-    return form.querySelector('.js-comment-field').value;
-}
-
+// TODO: Just use an external stylesheet
 function setupDisplay() {
     injectCSS(`
         .preview-content {
@@ -33,25 +27,10 @@ function setupDisplay() {
         .js-preview-tab {
             display: none !important;
         }
+        .js-preview-body:before {
+            content: "Preview";
+            font-weight: 600;
+            color: #555;
+        }
     `);
 }
-
-function getPreviewUri() {
-    return qs('.js-new-comment-form [data-preview-url]')
-        .getAttribute('data-preview-url');
-}
-
-function injectCSS(cssString = '', index = 0) {
-    const style = document.createElement('style');
-    style.innerHTML = cssString;
-    document.body.appendChild(style);
-}
-
-setupDisplay();
-waitForTypingPause(form => {
-    getMarkdownPreview(getPreviewUri(), getComment(form), getAuthenticityToken())
-        .then(markup => {
-            form.querySelector('.js-preview-body')
-                .innerHTML = markup;
-        }).catch(err => console.error(err.stack));
-});
