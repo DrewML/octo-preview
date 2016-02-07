@@ -1,0 +1,5 @@
+#!/bin/sh
+
+CSS_DIR="src/styles"
+
+cat $CSS_DIR/*

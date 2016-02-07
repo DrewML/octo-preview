@@ -12,5 +12,8 @@
         "js": ["inject.js"],
         "run_at": "document_idle"
     }],
-    "web_accessible_resources": ["live-preview.js"]
+    "web_accessible_resources": [
+        "live-preview.js",
+        "live-preview.css"
+    ]
 }

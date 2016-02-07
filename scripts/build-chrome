@@ -3,7 +3,9 @@
 CHROME_SHELL="shells/chrome"
 CHROME_DIST="dist/chrome"
 BUNDLE="./scripts/bundle-js"
+STYLES="./scripts/styles"
 
 rm -rf $CHROME_DIST && mkdir -p $CHROME_DIST
 $BUNDLE $CHROME_DIST/live-preview.js
-cp $CHROME_SHELL/{inject.js,manifest.json} $CHROME_DIST
+cp $CHROME_SHELL/* $CHROME_DIST
+$STYLES > $CHROME_DIST/live-preview.css

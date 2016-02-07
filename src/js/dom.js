@@ -1,11 +1,5 @@
 const qs = document.querySelector.bind(document);
 
-export function injectCSS(cssString = '', index = 0) {
-    const style = document.createElement('style');
-    style.innerHTML = cssString;
-    document.body.appendChild(style);
-}
-
 export function getAuthenticityToken() {
     return qs('input[name="authenticity_token"]').value;
 }

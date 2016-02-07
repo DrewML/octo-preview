@@ -1,0 +1,13 @@
+.preview-content {
+    display: block !important;
+}
+
+.js-preview-tab {
+    display: none !important;
+}
+
+.js-preview-body:before {
+    content: "Preview";
+    font-weight: 600;
+    color: #555;
+}

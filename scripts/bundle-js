@@ -1,5 +1,6 @@
 #!/bin/sh
 
 BROWSERIFY="./node_modules/.bin/browserify"
+BUNDLE_ENTRY="src/js/live-preview.js"
 
-$BROWSERIFY -t babelify src/live-preview.js -o $1
+$BROWSERIFY -t babelify $BUNDLE_ENTRY -o $1
