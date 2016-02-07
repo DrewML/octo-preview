@@ -15,7 +15,7 @@ export function getComment(form) {
 }
 
 export function getPreviewUri() {
-    return qs('.js-new-comment-form [data-preview-url]')
+    return qs('.js-previewable-comment-form')
         .getAttribute('data-preview-url');
 }
 

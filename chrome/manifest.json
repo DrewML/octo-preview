@@ -6,7 +6,8 @@
     "content_scripts": [{
         "matches": [
             "*://*/*/*/pull*",
-            "*://*/*/*/issues*"
+            "*://*/*/*/issues*",
+            "*://*/*/*/issues/new"
         ],
         "js": ["inject.js"],
         "run_at": "document_idle"
