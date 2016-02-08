@@ -4,11 +4,7 @@
     "description": "Live preview for markdown comments in PRs/Issues on GitHub",
     "manifest_version": 2,
     "content_scripts": [{
-        "matches": [
-            "*://*/*/*/pull*",
-            "*://*/*/*/issues*",
-            "*://*/*/*/issues/new"
-        ],
+        "matches": ["*://*/*"],
         "js": ["inject.js"],
         "run_at": "document_idle"
     }],
