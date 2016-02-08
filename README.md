@@ -4,7 +4,10 @@ A Chrome extension that displays live previews of Markdown comments while you ty
 
 ![animated example](example.gif)
 
+## Where to Download
+
+- [Chrome](https://chrome.google.com/webstore/detail/octo-preview/elomekmlfonmdhmpmdfldcjgdoacjcba)
+
 ## Todo
 
-- Handle GitHub's not-full-page-reload use-case (likely w/ mutation observers)
 - Port to Firefox
