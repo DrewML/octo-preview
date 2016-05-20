@@ -1,6 +1,5 @@
 {
   "name": "octo-preview",
-  "version": "1.0.0",
   "description": "Live preview for markdown comments in PRs/Issues on GitHub",
   "scripts": {
     "build-chrome": "./scripts/build-chrome"
