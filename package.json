@@ -2,7 +2,9 @@
   "name": "octo-preview",
   "description": "Live preview for markdown comments in PRs/Issues on GitHub",
   "scripts": {
-    "build-chrome": "./scripts/build-chrome"
+    "build-chrome": "./scripts/build-chrome",
+    "zip": "zip -jr chrome.zip dist/chrome/",
+    "release": "npm run build-chrome && npm run zip && webstore upload publish"
   },
   "author": "Andrew Levine",
   "dependencies": {
