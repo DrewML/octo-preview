@@ -26,10 +26,22 @@ export function throttleWhenTyping(cb, timeout) {
         cb(form);
     }
 
-    $(document).on('change keydown', '.js-comment-field', function() {
+    function handleChange() {
         if (timer) return;
 
-        const form = $(this).closest('form').get(0);
+        const form = this.closest('form');
         timer = setTimeout(() => success(form), timeout);
+    }
+
+    live('change', '.js-comment-field', handleChange);
+    live('keydown', '.js-comment-field', handleChange);
+}
+
+function live(eventType, selector, cb) {
+    document.addEventListener(eventType, function(event) {
+        const el = event.target.closest(selector);
+        if (el) {
+            cb.call(el, event);
+        }
     });
 }
