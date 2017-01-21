@@ -1,7 +1,8 @@
 const qs = document.querySelector.bind(document);
 
 export function getAuthenticityToken() {
-    return qs('input[name="authenticity_token"]').value;
+    return qs('.timeline-comment > .js-previewable-comment-form')
+        .getAttribute('data-preview-authenticity-token');
 }
 
 export function getComment(form) {
@@ -9,7 +10,7 @@ export function getComment(form) {
 }
 
 export function getPreviewUri() {
-    return qs('.js-previewable-comment-form')
+    return qs('.timeline-comment > .js-previewable-comment-form')
         .getAttribute('data-preview-url');
 }
 
